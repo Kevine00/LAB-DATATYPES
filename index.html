@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+ function calculator() {
+    while (true) {
+        
+        let num1 = prompt("Enter the first number (Q to quit):");
+        if (num1.toUpperCase() === "Q") {
+            break;
+        }
+        if (Number.isNaN(Number(num1))) {
+            alert("Invalid input. Please enter a valid number.");
+            continue;
+        }
+        let operator = prompt("Enter the operation (+, -, *, /):");
+        if (operator.toUpperCase() === "Q") {
+            break;
+        }
+        if (!["+", "-", "*", "/"].includes(operator)) {
+            alert("Invalid operator. Please enter a valid operator.");
+            continue;
+        }
+        let num2 = prompt("Enter the second number:");
+
+        // Check if the user wants to quit
+        if (num2.toUpperCase() === "Q") {
+            break;
+        }
+        if (Number.isNaN(Number(num2))) {
+            alert("Invalid input. Please enter a valid number.");
+            continue;
+        }
+
+
+        let result;
+        switch (operator) {
+            case "+":
+                result = Number(num1) + Number(num2);
+                break;
+            case "-":
+                result = Number(num1) - Number(num2);
+                break;
+            case "*":
+                result = Number(num1) * Number(num2);
+                break;
+            case "/":
+                // Check for division by zero
+                if (Number(num2) === 0) {
+                    alert("Error: Division by zero.");
+                    continue;
+                }
+                result = Number(num1) / Number(num2);
+                break;
+        }
+        alert(`Result: ${result}`);
+    }
+
+    alert("Calculator closed. Thank you!");
+ }
+calculator();
+
+
+
+    </script>
+</body>
+</html>
+
